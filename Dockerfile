@@ -1,5 +1,8 @@
-FROM openjdk:17-oracle
+FROM ubuntu
 
 WORKDIR /server
 
-CMD echo "Starting minecraft server...\n" && java -Xmx8192M -jar server-1.18.1.jar nogui
+RUN apt -y update
+RUN apt -y install openjdk-17-jdk
+
+CMD echo "Starting minecraft server...\n" && java -Xmx4096M -jar server-1.18.1.jar nogui
